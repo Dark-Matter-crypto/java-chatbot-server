@@ -35,7 +35,7 @@ public class Server {
             
             boolean ongoing = true;
 
-            while (ongoing){
+            do{
                 if (userCommand.equals("HELLO BOT")){
                     pw.println("ASK me a question or DONE");
                     pw.flush();
@@ -83,7 +83,8 @@ public class Server {
                     pw.flush();
                     userCommand = br.readLine();
                 }
-            }
+                
+            }while (ongoing);
 
         } catch (IOException e) {
             System.err.println("Unable to bind to port.");
