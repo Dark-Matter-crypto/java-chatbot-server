@@ -51,7 +51,7 @@ public class Server {
                             pw.println("0" + count + " OK BYE - " + (count-1) + " questions answered");
                             pw.flush();
                             ongoing = false;
-                            continue;
+                            break;
                         }
                         else if(anyMatcher.matches() && (userCommand.contains("covid") || userCommand.contains("virus"))){
                             pw.println("0" + count + " Please see sacoronavirus.co.za.");
