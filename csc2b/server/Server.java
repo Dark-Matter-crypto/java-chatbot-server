@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -39,6 +40,7 @@ public class Server {
                 if (userCommand.equals("HELLO BOT")){
                     pw.println("ASK me a question or DONE");
                     pw.flush();
+                    Random rand = new Random();
                     int count = 1;
 
                     for(int i = 1; i < 5; i++){
@@ -62,12 +64,38 @@ public class Server {
                             pw.flush();
                         }
                         else if (areMatcher.matches()){
-                            pw.println("0" + count + " Maybe");
-                            pw.flush();
+                            int randNum = rand.nextInt(3);
+                            switch(randNum){
+                                case 0:
+                                    pw.println("0" + count + " Maybe");
+                                    pw.flush();
+                                    break;
+                                case 1:
+                                    pw.println("0" + count + " No");
+                                    pw.flush();
+                                    break;
+                                case 2:
+                                    pw.println("0" + count + " Yes");
+                                    pw.flush();
+                                    break;
+                            }
                         }
                         else{
-                            pw.println("0" + count + " Escusez-moi?");
-                            pw.flush();
+                            int randNum = rand.nextInt(3);
+                            switch(randNum){
+                                case 0:
+                                    pw.println("0" + count + " Meh");
+                                    pw.flush();
+                                    break;
+                                case 1:
+                                    pw.println("0" + count + " Oh ok!");
+                                    pw.flush();
+                                    break;
+                                case 2:
+                                    pw.println("0" + count + " Escusez-moi?");
+                                    pw.flush();
+                                    break;
+                            }
                         }
                         count++;
                     }
